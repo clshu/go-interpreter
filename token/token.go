@@ -1,14 +1,5 @@
 package token
 
-// Type represents the type of token.
-type Type string
-
-// Token defines a token with its type and literal value.
-type Token struct {
-	Type    Type
-	Literal string
-}
-
 const (
 	// ILLEGAL represents an illegal token.
 	ILLEGAL Type = "ILLEGAL"
@@ -50,3 +41,26 @@ const (
 	// LET represents a let keyword token.
 	LET Type = "LET"
 )
+
+var keywords = map[string]Type{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+// Type represents the type of token.
+type Type string
+
+// Token defines a token with its type and literal value.
+type Token struct {
+	Type    Type
+	Literal string
+}
+
+// LookupIdent checks if the identifier is a keyword and returns its type.
+// If not, it returns IDENT.
+func LookupIdent(ident string) Type {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+	return IDENT
+}
