@@ -18,6 +18,20 @@ const (
 	PLUS Type = "+"
 	// MINUS represents a minus token.
 	MINUS Type = "-"
+	// BANG represents a bang token.
+	BANG Type = "!"
+	// ASTERISK represents an asterisk token.
+	ASTERISK Type = "*"
+	// SLASH represents a slash token.
+	SLASH Type = "/"
+	// LT represents a less than token.
+	LT Type = "<"
+	// GT represents a greater than token.
+	GT Type = ">"
+	// EQ represents an equal token.
+	EQ Type = "=="
+	// NotEQ represents a not equal token.
+	NotEQ Type = "!="
 
 	// Delimiters
 
@@ -40,11 +54,26 @@ const (
 	FUNCTION Type = "FUNCTION"
 	// LET represents a let keyword token.
 	LET Type = "LET"
+	// TRUE represents a true keyword token.
+	TRUE Type = "TRUE"
+	// FALSE represents a false keyword token.
+	FALSE Type = "FALSE"
+	// IF represents an if keyword token.
+	IF Type = "IF"
+	// ELSE represents an else keyword token.
+	ELSE Type = "ELSE"
+	// RETURN represents a return keyword token.
+	RETURN Type = "RETURN"
 )
 
 var keywords = map[string]Type{
-	"fn":  FUNCTION,
-	"let": LET,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"true":   TRUE,
+	"false":  FALSE,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
 }
 
 // Type represents the type of token.
